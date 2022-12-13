@@ -18,9 +18,10 @@ public class Palindrom {
     }
     public static void main(String[] args)
     {
-        String str = "sus";
+        Scanner input = new Scanner(System.in);
+        String str = input.nextLine();
         str = str.toLowerCase();
         boolean A = isPalindrome(str);
-        System.out.println(A);
+        System.out.println(A?"Yes":"No");
     }
 }

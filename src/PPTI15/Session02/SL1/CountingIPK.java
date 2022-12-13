@@ -1,5 +1,7 @@
 package PPTI15.Session02.SL1;
 
+import java.util.Scanner;
+
 public class CountingIPK {
     
     public static void sort(double ipk[]) {
@@ -16,7 +18,14 @@ public class CountingIPK {
 
 
     public static void main(String[] args) {
-        double ipk[]= { 3.5, 3.9, 3.9, 3.2, 3.4, 3.6, 3.8, 3.1, 3.3, 3.0 };
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        double ipk[] = new double[n];
+        
+        for (int i = 0; i < ipk.length; i++) {
+            ipk[i] = input.nextDouble();
+        }
+        
         sort(ipk);
         for (int i = 0; i < ipk.length; i++) {
             for (int j = i + 1; j < ipk.length; j++) {
