@@ -1,6 +1,5 @@
 package PPTI15.Session02.SL1;
 import java.util.Scanner;
-// import java.io.*;
 
 public class matrix {
     public static void main(String[] args) {
@@ -8,7 +7,6 @@ public class matrix {
         int matrix[][] = new int[5][5];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
-                // System.out.print("Masukkan nilai matrix[" + i + "][" + j + "]: ");
                 matrix[i][j] = input.nextInt();
             }
         }
@@ -27,7 +25,6 @@ public class matrix {
             }
         }
         
-        // sum of matrix
         int sum = 0;
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
@@ -35,7 +32,6 @@ public class matrix {
             }
         }
 
-        // max value of matrix
         int max = matrix[0][0];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
@@ -45,7 +41,6 @@ public class matrix {
             }
         }
 
-        // min value of matrix
         int min = matrix[0][0];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
@@ -55,12 +50,10 @@ public class matrix {
             }
         }
 
-        // print sum , max , min
         System.out.println("Sum of matrix: " + sum);
         System.out.println("Max value of matrix: " + max);
         System.out.println("Min value of matrix: " + min);
 
-        // print matrix
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix.length; j++) {
                 System.out.print(matrix[i][j] + " ");
