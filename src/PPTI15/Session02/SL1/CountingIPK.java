@@ -44,7 +44,8 @@ public class CountingIPK {
                     rank++;
                 }
             }
-            System.out.println(rank+" " + ipk[i] );            
+            // System.out.println(rank+" " + ipk[i] );            
+            System.out.printf("%d %.2f", rank, ipk[i]);
         }
     }
 }
