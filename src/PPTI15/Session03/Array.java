@@ -5,11 +5,12 @@ import java.util.Scanner;
 
 public class Array {
     static Scanner sc=new Scanner(System.in);
-    public static void name() {
+    public static void main(String[] args) {
         int[] arr=new int[100];
         arr[0]=123;
         System.out.println(arr[0]);
         int [][] duaD=new int[100][100];    
+        array_list();
     }
 
     static void array_list(){
@@ -17,7 +18,7 @@ public class Array {
         score.add(758);
         score.add(0,457);
         System.out.println(score.get(0));
-        
+        System.out.println(score.get(1));
     }
 
 }
