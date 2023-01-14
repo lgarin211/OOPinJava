@@ -33,6 +33,7 @@ public class Array {
         //     System.out.println(score.get(i));
         // }
         System.out.println("Before : "+score.get(0));
+        // Rearrange
         score.remove(0);
         System.out.println("After Remove size is :"+score.size());
         System.out.println("After Remove : "+score.get(0));
