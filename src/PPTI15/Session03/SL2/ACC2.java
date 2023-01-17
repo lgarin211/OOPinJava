@@ -4,7 +4,7 @@
     public class ACC2 {
 
         public static void main(String[] args) {
-            
+            case1NullPointerException();
         }    
         // NullPointerException adalah keluhan (exception) yang ditemukan dalam pemrograman Java ketika program mencoba mengakses atau menggunakan objek yang tidak memiliki nilai (null). Hal ini terjadi karena objek yang digunakan tidak diinisialisasi atau tidak memiliki referensi. Contoh kode yang menyebabkan NullPointerException adalah sebagai berikut:
         static void case1NullPointerException(){
@@ -82,5 +82,7 @@
                 System.out.println("Error: " + e.getMessage());
             }
         }
+
+        
 
     }
