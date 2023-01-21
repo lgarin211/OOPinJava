@@ -46,9 +46,86 @@ public class Praktek {
         AddPraktek("Dokter B", Keluhan, "Diagnosis", "Tindakan");
         System.out.print("\033c");
         System.out.println("Keluhan Anda : \n"+Keluhan+"\nTelah di rekam dan akan di proses Oleh Dokter Di Harap Di tunggu : \n");
-        okw.tanyadokternya("dalam bahasa indonesia obat untuk "+Keluhan+"?");
+        // okw.tanyadokternya("dalam bahasa indonesia obat untuk "+Keluhan+"?");
         // okw.tanyadokternya("dalam bahasa indonesia obat untuk pusing ?");
         // System.out.println("Apakah Anda Ingin Menambah Keluhan?");
+    }
+
+    public static void Jadwalview(){
+        System.out.print("\033c");
+        Dokter dataDokter = new Dokter();
+        // System.out.println(dataDokter.Datadokter.size());
+        System.out.println("===================================");
+        int p=0;
+        do {
+            Scanner userInput = new Scanner(System.in);
+            System.out.println("MENU LIHAT JADWAL PRAKTIK");
+            System.out.println("==========================");
+            System.out.println("1. Praktek Pagi");
+            System.out.println("2. Praktek Sore");
+            System.out.println("3. Praktek Malam");
+            System.out.println("4. Back");
+            System.out.println("=======================");
+            System.out.print("Pilih Jadwal Praktek yang ingin dilihat : ");
+            p = userInput.nextInt();
+            System.out.print("\033c");
+            switch (p) {
+                case 1:
+                    for (int i = 0; i < dataDokter.Datadokter.size(); i++) {
+                        // clear console
+                        // System.out.println(dataDokter.Datadokter.get(i).Jadwal);
+                        if (dataDokter.Datadokter.get(i).Jadwal.equals("Pagi")) {
+                            System.out.println("Nama Dokter : " + dataDokter.Datadokter.get(i).NamaDokter);
+                            System.out.println("Spesialis : " + dataDokter.Datadokter.get(i).Spesialis);
+                            System.out.println("Jadwal : " + dataDokter.Datadokter.get(i).Jadwal);
+                            // System.out.println("Hari : " + dataDokter.Datadokter.get(i).Hari);
+                            // System.out.println("Pukul : " + dataDokter.Datadokter.get(i).Pukul);
+                            System.out.println("===================================");
+                        }
+                    }
+                    System.out.print("Press enter to continue...");
+                    userInput.nextLine();
+                    userInput.nextLine();
+                    break;
+                case 2:
+                    for (int i = 0; i < dataDokter.Datadokter.size(); i++) {
+                        // clear console
+                        // System.out.println(dataDokter.Datadokter.get(i).Jadwal);
+                        if (dataDokter.Datadokter.get(i).Jadwal.equals("Sore")) {
+                            System.out.println("Nama Dokter : " + dataDokter.Datadokter.get(i).NamaDokter);
+                            System.out.println("Spesialis : " + dataDokter.Datadokter.get(i).Spesialis);
+                            System.out.println("Jadwal : " + dataDokter.Datadokter.get(i).Jadwal);
+                            // System.out.println("Hari : " + dataDokter.Datadokter.get(i).Hari);
+                            // System.out.println("Pukul : " + dataDokter.Datadokter.get(i).Pukul);
+                            System.out.println("===================================");
+                        }
+                    }
+                    System.out.print("Press enter to continue...");
+                    userInput.nextLine();
+                    userInput.nextLine();
+                    break;
+                case 3:
+                    for (int i = 0; i < dataDokter.Datadokter.size(); i++) {
+                        // clear console
+                        if (dataDokter.Datadokter.get(i).Jadwal.equals("Malam")) {
+                            System.out.println("Nama Dokter : " + dataDokter.Datadokter.get(i).NamaDokter);
+                            System.out.println("Spesialis : " + dataDokter.Datadokter.get(i).Spesialis);
+                            System.out.println("Jadwal : " + dataDokter.Datadokter.get(i).Jadwal);
+                            // System.out.println("Hari : " + dataDokter.Datadokter.get(i).Hari);
+                            // System.out.println("Pukul : " + dataDokter.Datadokter.get(i).Pukul);
+                            System.out.println("===================================");
+                        }
+                    }
+                    System.out.print("Press enter to continue...");
+                    userInput.nextLine();
+                    userInput.nextLine();
+                    break;
+                case 4:
+                    // menuAwalPasien();
+                    break;
+            }
+        }while(p != 4);
+
     }
     
 }

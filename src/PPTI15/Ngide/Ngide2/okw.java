@@ -10,6 +10,14 @@ import java.net.URLEncoder;
 import java.util.Scanner;
 import java.lang.*;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+
 public class okw {
 
 public static void tanyadokternya(String prompt) {
@@ -22,7 +30,7 @@ public static void tanyadokternya(String prompt) {
             // add request header
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
-            con.setRequestProperty("Authorization", "Bearer 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");
+            con.setRequestProperty("Authorization", "Bearer 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");
 
             // String prompt="apa obat untuk Pilek, Batuk, Flu, Pusing";
 
@@ -69,5 +77,49 @@ public static void tanyadokternya(String prompt) {
         }
     }
 }
-//Pastikan untuk mengganti "YOUR_API_KEY" dengan kunci API yang Anda miliki. Kode di atas mengirimkan request ke API Chat GPT dengan prompt "What is the capital of France?" dan mencetak respon yang diterima dari server.  
+// Pastikan untuk mengganti "YOUR_API_KEY" dengan kunci API yang Anda miliki. Kode di atas mengirimkan request ke API Chat GPT dengan prompt "What is the capital of France?" dan mencetak respon yang diterima dari server.  
+
+// public static void tanyadokternya() {
+//     try {
+//         URL url = new URL("https://api.openai.com/v1/completions");
+//         HttpURLConnection con = (HttpURLConnection) url.openConnection();
+
+//         // Set request properties
+//         con.setRequestMethod("POST");
+//         con.setRequestProperty("Content-Type", "application/json");
+//         con.setRequestProperty("Authorization", "Bearer " + System.getenv("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"));
+
+//         // Set request body
+//         Map<String, Object> requestBody = new HashMap<>();
+//         requestBody.put("model", "text-davinci-003");
+//         requestBody.put("prompt", "president pertama indonesia adalah");
+//         requestBody.put("temperature", 0.7);
+//         requestBody.put("max_tokens", 256);
+//         requestBody.put("top_p", 1);
+//         requestBody.put("frequency_penalty", 0);
+//         requestBody.put("presence_penalty", 0);
+
+//         con.setDoOutput(true);
+//         DataOutputStream out = new DataOutputStream(con.getOutputStream());
+//         out.writeBytes(requestBody.toString());
+//         out.flush();
+//         out.close();
+
+//         // Get response
+//         BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
+//         String inputLine;
+//         StringBuffer response = new StringBuffer();
+//         while ((inputLine = in.readLine()) != null) {
+//             response.append(inputLine);
+//         }
+//         in.close();
+
+//         // Print response
+//         System.out.println(response.toString());
+//     } catch (Exception e) {
+//         e.printStackTrace();
+//     }
+// }
+
+// }
 

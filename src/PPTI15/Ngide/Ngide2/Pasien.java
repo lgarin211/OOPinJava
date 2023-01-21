@@ -29,6 +29,8 @@ public class Pasien{
         this.Umur = Umur;
     }
 
+    
+
     // Berobat
     static void Berobat(){
         praktek.keluhan();
@@ -38,9 +40,13 @@ public class Pasien{
         int pilihan = input.nextInt();
         switch (pilihan) {
             case 1:
-                // reservasi(NamaPasien, Alamat, Umur);
                 break;
-        
+     
+            case 2:
+                System.out.println("Terima Kasih Telah Menggunakan Layanan Kami, Jagalah Kesehatan Anda, Karena Better Anda Sehat ...");
+                System.out.println("Lekas Sembuh  :)");
+                break;
+     
             default:
                 break;
         }
