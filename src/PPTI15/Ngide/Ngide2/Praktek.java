@@ -46,7 +46,7 @@ public class Praktek {
         AddPraktek("Dokter B", Keluhan, "Diagnosis", "Tindakan");
         System.out.print("\033c");
         System.out.println("Keluhan Anda : \n"+Keluhan+"\nTelah di rekam dan akan di proses Oleh Dokter Di Harap Di tunggu : \n");
-        // okw.tanyadokternya("dalam bahasa indonesia obat untuk "+Keluhan+"?");
+        okw.tanyadokternya("dalam bahasa indonesia obat untuk "+Keluhan+"?");
         // okw.tanyadokternya("dalam bahasa indonesia obat untuk pusing ?");
         // System.out.println("Apakah Anda Ingin Menambah Keluhan?");
     }

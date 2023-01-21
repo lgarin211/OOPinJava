@@ -40,6 +40,7 @@ public class Pasien{
         int pilihan = input.nextInt();
         switch (pilihan) {
             case 1:
+            // belum ada apa apa
                 break;
      
             case 2:

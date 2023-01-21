@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class okw {
-
+// intinya scrip disini buat nanya ke CHATGPT Tapi masih agak ngebug CHATGPT cari tau aja sendiri
 public static void tanyadokternya(String prompt) {
         try {
             String url = "https://api.openai.com/v1/engines/davinci-codex/completions";
@@ -37,7 +37,7 @@ public static void tanyadokternya(String prompt) {
             // Send post request
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.writeBytes("{\r\n  \"prompt\": \"" + prompt + "\",\r\n  \"temperature\": 0.5,\r\n  \"max_tokens\": 200,\r\n  \"top_p\": 1,\r\n  \"frequency_penalty\": 0,\r\n  \"presence_penalty\": 0\r\n \"model\": text-davinci-003\r\n }");
+            wr.writeBytes("{\r\n  \"prompt\": \"" + prompt + "\",\r\n  \"temperature\": 0.28,\r\n  \"max_tokens\": 200,\r\n  \"top_p\": 1,\r\n  \"frequency_penalty\": 0,\r\n  \"presence_penalty\": 0\r\n \"model\": text-davinci-003\r\n }");
             wr.flush();
             wr.close();
 
