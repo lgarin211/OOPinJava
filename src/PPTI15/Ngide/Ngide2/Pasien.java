@@ -3,7 +3,7 @@ package PPTI15.Ngide.Ngide2;
 import java.util.ArrayList;
 import java.util.*;
 
-import PPTI15.Ngide.Masyarakat.Reservasi;
+// import PPTI15.Ngide.Masyarakat.Reservasi;
 
 public class Pasien{
     static String NamaPasien;
@@ -40,7 +40,7 @@ public class Pasien{
         int pilihan = input.nextInt();
         switch (pilihan) {
             case 1:
-            // belum ada apa apa
+                Reservasi.tambahReservasi();
                 break;
      
             case 2:
