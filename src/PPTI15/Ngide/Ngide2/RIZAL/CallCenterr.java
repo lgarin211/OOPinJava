@@ -15,9 +15,12 @@ class CallCenterr{
     }
     
     public void view(){
-        System.out.println("Call Center ");
-        System.out.println(nama);
-        System.out.println(nomor);
+        System.out.println("CALL CENTER");
+        System.out.println("===================");
+        for(int i = 0 ; i < nama.size() ; i++){
+            System.out.println(nama.get(i));
+            System.out.println(nomor.get(i) + "\n");
+        }
     }
 
     public void tambah(){
@@ -35,7 +38,7 @@ class CallCenterr{
 
     public void deleteCabang(){
         Scanner delete = new Scanner(System.in);
-        System.out.printf("Nama yang ingin dihapus : ");
+        System.out.printf("Masukkan nama yang ingin dihapus : ");
         String cabang = delete.nextLine();
         int index = nama.indexOf(cabang);
 
@@ -45,7 +48,7 @@ class CallCenterr{
 
         nama.remove(index);
         nomor.remove(index);
-
+        System.out.println("Cabang " + cabang + "berhasil dihapus\n");
 
     }
 }

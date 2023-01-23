@@ -13,65 +13,94 @@ public class Main {
 
     public static void main(String[] args) {
         Dokter dokter = new Dokter();
-        dokter.savedata("u","U","Y","D");
+        dokter.savedata("vina","U","Y","D");
         dokter.savedata("Dr. Ngide1","Dokter Umum","Pagi","Ruang 1");
         dokter.savedata("Dr. Ngide2","Dokter Umum","Sore","Ruang 2");
         dokter.savedata("Dr. Ngide3","Dokter Umum","Malam","Ruang 3");
         dokter.savedata("Dr. Ngide4","Dokter Umum","Pagi","Ruang 4");
         dokter.savedata("Dr. Ngide5","Dokter Umum","Sore","Ruang 5");
 
-        System.out.println("Selamat Datang Masuk Sebagai \n 1. Pasien \n 2. Dokter");
+        // masuk=input.nextInt();
         Scanner input = new Scanner(System.in);
-        int masuk=input.nextInt();
-        switch (masuk) {
-            case 1:
-                Hospitalrun();    
-                break;        
-            case 2:
-                dokter.login();
-                // belumjadi    //    
-                break;        
-            default:
-                break;
-        }
+        do{
+            System.out.println("\033c");
+            System.out.println("Selamat Datang Masuk Sebagai \n 1. Pasien \n 2. Dokter");
+    
+            int masuk=0;
+    
+            do{
+                System.out.println("Masukan Angka 1 atau 2");
+                System.out.print("Select : ");
+                masuk=input.nextInt();                
+            }
+            while(masuk<1||masuk>2);
+
+            switch (masuk) {
+                case 1:
+                    Hospitalrun();    
+                    break;        
+                case 2:
+                    dokter.login();
+                    break;        
+                default:
+                    break;
+            }
+        }while(3==3);
     }
 
     public static void Berobat(){
         input = new Scanner(System.in);
         System.out.println("Silahkan Melakukan Registrasi Pasien");
         System.out.printf("Masukkan Nama Pasien : ");
-        String NamaPasien = input.nextLine();
+        String NamaPasien;
+        NamaPasien = input.nextLine();
         System.out.printf("Masukkan Alamat Pasien : ");
         String Alamat = input.nextLine();
         System.out.printf("Masukkan Umur Pasien : ");
-        String Umur = input.nextLine();
+        int Umur=0;
+        do{
+            try {
+                Umur = input.nextInt();
+            } catch (Exception e) {
+                System.out.println("Masukkan Angka");
+            }
+        }while(Umur<0||Umur>80);
+       
         Pasien Newpasien = new Pasien(NamaPasien, Alamat, Umur);
         System.out.print("\033c");
-        System.out.println("Data Anda Telah Di simpah, Harap Tunggu");
+        System.out.println("Data Anda Telah disimpan, Harap Tunggu");
         Newpasien.Berobat();
         DataPasiend.add(Newpasien);
     }
+    
     public static void NewReservasi(){
         input = new Scanner(System.in);
         System.out.println("Silahkan Melakukan Registrasi Pasien");
+        System.out.println("====================================");
         System.out.printf("Masukkan Nama Pasien : ");
         String NamaPasien = input.nextLine();
         System.out.printf("Masukkan Alamat Pasien : ");
         String Alamat = input.nextLine();
         System.out.printf("Masukkan Umur Pasien : ");
-        String Umur = input.nextLine();
+        int Umur = 0;
+        do{
+            try {
+                Umur = input.nextInt();                
+            } catch (Exception e) {
+                System.out.println("Masukkan Angka");
+            }
+        }while(Umur<0||Umur>80);
+        input.nextLine();
         Reservasi Newpasien = new Reservasi();
         System.out.print("\033c");
-        System.out.println("Data Anda Telah Di simpah, Harap Tunggu");
-        Newpasien.tambahReservasi();
-        // DataPasiend.add(Newpasien);
+        System.out.println("Data Anda Telah disimpan, harap tunggu\n");
+
+        Newpasien.Sonslreserv();
     }
 
     public static void Hospitalrun() {
         new Main();
-        // okw.tanyadokternya();
-        // okw.tanyadokternya("Nama Kota Di Jawa barat?");
-        int pilihan =0;
+        int pilihan = 0;
         do{
             bin.Hospital();
             // System.out.print("\033c");
@@ -79,17 +108,20 @@ public class Main {
 
             System.out.println("Menu OOP HOSPITAL APPS");
             System.out.println("======================");
-            System.out.println("1. Reservasi");
-            System.out.println("2. Berobat");
+            System.out.println("1. Reservasi Kamar");
+            System.out.println("2. Reservasi Konsultasi");
             System.out.println("3. Jadwal Praktik Dokter");
             System.out.println("4. Fasilitas Rumah Sakit");
             System.out.println("5. Call Center");
             System.out.println("6. Exit");
 
             System.out.printf("Select menu : ");
-            // Scanner input = new Scanner(System.in);
-            pilihan = input.nextInt();
-
+        
+            do{
+                pilihan = input.nextInt();
+            }while(pilihan<1||pilihan>6);
+           
+       
             switch (pilihan) {
                 case 1:
                     NewReservasi();
@@ -104,8 +136,6 @@ public class Main {
                     Fasilitas.lihatFasilitas();
                     break;
                 case 5:
-                    // CallCenter callCenter = new CallCenter();
-                    // callCenter.Callmenu();
                     CallCenter.run();   
                     break;                 
                 default:
@@ -113,8 +143,9 @@ public class Main {
             }
         }while(pilihan!=6);
     }
+
     public Main(){
-        Pasien pasien = new Pasien("Ngide", "Jl. Ngide", "20");
+        Pasien pasien = new Pasien("Ngide", "Jl. Ngide", 20);
         DataPasiend.add(pasien);
     }
 }

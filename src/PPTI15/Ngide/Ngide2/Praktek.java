@@ -6,11 +6,12 @@ import java.util.Scanner;
 
 public class Praktek {
     static String NamaDokter;
-    static String Keluhan=" ";
+    static String Keluhan="";
     static String Diagnosis;
     static String Tindakan;
+    static String JadwalDokter;
     static ArrayList<Praktek> DataBerobat = new ArrayList<Praktek>();
-    static ArrayList<Obat> DataObat = new ArrayList<Obat>();
+    // static ArrayList<Obat> DataObat = new ArrayList<Obat>();
     static Scanner in = new Scanner(System.in);
 
     static void AddPraktek(String NamaDokter1, String Keluhan1, String Diagnosis1, String Tindakan1){
@@ -35,18 +36,29 @@ public class Praktek {
     public static void keluhan() {
         // pilih dokter
         System.out.print("\033c");
-        System.out.println("Dokter Yang Tersedia :");
+        System.out.println("Dokter Yang Tersedia Untuk konsultasi :");
         Dokter dokter = new Dokter();
         dokter.ShowDokter();
-        System.out.println("Pilih Dokter : ");
-        int pilih = in.nextInt();
+        int pilih;
+        do{
+            System.out.print("Pilih Dokter : ");
+            pilih = in.nextInt();
+        }while(pilih < 1 || pilih > dokter.Datadokter.size());
+        
         NamaDokter=dokter.Datadokter.get(pilih-1).NamaDokter;
-        System.out.println("Hallo "+Pasien.NamaPasien+" Saya "+NamaDokter+" Bisa Saya Bantu ?");
+        JadwalDokter=dokter.Datadokter.get(pilih-1).Jadwal;
+        // System.out.println("Hallo "+Pasien.NamaPasien+" Saya "+NamaDokter+" Bisa Saya Bantu ?");
+        System.out.println("Anda memilih konsultasi dengan Dr. " + NamaDokter + "\nJadwal : " + JadwalDokter);
+
+        System.out.println("Apakah anda ingin memberikan keluhan sebelum berkonsultasi?");
         sesiTanya();
         AddPraktek("Dokter B", Keluhan, "Diagnosis", "Tindakan");
         System.out.print("\033c");
-        System.out.println("Keluhan Anda : \n"+Keluhan+"\nTelah di rekam dan akan di proses Oleh Dokter Di Harap Di tunggu : \n");
-        okw.tanyadokternya("apakah penyebap "+Keluhan+"?");
+        System.out.println("Keluhan Anda : "+Keluhan+"\nTelah di rekam dan akan di proses Oleh Dokter,\nSilahkan datang berkonsultasi sesuai dengan jadwal yang ada\n");
+        
+
+        // response 
+        // okw.tanyadokternya("apakah penyebap "+Keluhan+"?");
         // okw.tanyadokternya("dalam bahasa indonesia obat untuk pusing ?");
         // System.out.println("Apakah Anda Ingin Menambah Keluhan?");
     }
@@ -55,7 +67,7 @@ public class Praktek {
         System.out.print("\033c");
         Dokter dataDokter = new Dokter();
         // System.out.println(dataDokter.Datadokter.size());
-        System.out.println("===================================");
+        System.out.println("===============================");
         int p=0;
         do {
             Scanner userInput = new Scanner(System.in);
