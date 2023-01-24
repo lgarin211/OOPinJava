@@ -23,16 +23,16 @@ public class Main {
         int masuk=0;
         do{
             System.out.println("\033c");
-            System.out.println("Selamat Datang Masuk Sebagai \n 1. Pasien \n 2. Dokter");
+            System.out.println("Selamat Datang Masuk Sebagai \n 1. Pasien \n 2. Dokter\n 3. Exit");
     
             
     
             do{
-                System.out.println("Masukan Angka 1 atau 2");
-                System.out.print("Select : ");
+                // System.out.println("Masukan Angka ");
+                System.out.print("Select [1-3]: ");
                 masuk=input.nextInt();          
             }
-            while(masuk<1||masuk>2);
+            while(masuk<1||masuk>3);
 
             switch (masuk) {
                 case 1:
