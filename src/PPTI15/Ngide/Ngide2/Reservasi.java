@@ -21,6 +21,13 @@ public class Reservasi extends Fasilitas{
         System.out.println("1. Super VIP\n2. VIP\n3. Kelas 1\n4. Kelas 2");
         System.out.printf("Masukkan Pilihan Anda : ");
         int pilihan = Fil.nextInt();
+        while (pilihan > 4 || pilihan < 1){
+            System.out.println("Pilihan Anda Tidak Tersedia");
+            System.out.println("Silahkan Pilih Fasilitas Rumah Sakit");
+            System.out.println("1. Super VIP\n2. VIP\n3. Kelas 1\n4. Kelas 2");
+            System.out.printf("Masukkan Pilihan Anda : ");
+            pilihan = Fil.nextInt();
+        }
         switch (pilihan){
             case 1:
                 System.out.println("Anda Memilih Super VIP");
@@ -56,6 +63,13 @@ public class Reservasi extends Fasilitas{
         System.out.println("1. Super VIP\n2. VIP\n3. Kelas 1\n4. Kelas 2");
         System.out.println("Masukkan Pilihan Anda : ");
         int pilihan = Fil.nextInt();
+        while (pilihan > 4 || pilihan < 1){
+            System.out.println("Pilihan Anda Tidak Tersedia");
+            System.out.println("Silahkan Pilih Fasilitas Rumah Sakit");
+            System.out.println("1. Super VIP\n2. VIP\n3. Kelas 1\n4. Kelas 2");
+            System.out.println("Masukkan Pilihan Anda : ");
+            pilihan = Fil.nextInt();
+        }
         switch (pilihan){
             case 1:
                 System.out.println("Anda Memilih Super VIP");

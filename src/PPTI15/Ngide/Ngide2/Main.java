@@ -19,19 +19,18 @@ public class Main {
         dokter.savedata("Dr. Ngide3","Dokter Umum","Malam","Ruang 3");
         dokter.savedata("Dr. Ngide4","Dokter Umum","Pagi","Ruang 4");
         dokter.savedata("Dr. Ngide5","Dokter Umum","Sore","Ruang 5");
-
-        // masuk=input.nextInt();
         Scanner input = new Scanner(System.in);
+        int masuk=0;
         do{
             System.out.println("\033c");
             System.out.println("Selamat Datang Masuk Sebagai \n 1. Pasien \n 2. Dokter");
     
-            int masuk=0;
+            
     
             do{
                 System.out.println("Masukan Angka 1 atau 2");
                 System.out.print("Select : ");
-                masuk=input.nextInt();                
+                masuk=input.nextInt();          
             }
             while(masuk<1||masuk>2);
 
@@ -42,29 +41,46 @@ public class Main {
                 case 2:
                     dokter.login();
                     break;        
+                case 3:
+                    break;
                 default:
                     break;
             }
-        }while(3==3);
+        }while(masuk != 3);
     }
 
+    
     public static void Berobat(){
         input = new Scanner(System.in);
         System.out.println("Silahkan Melakukan Registrasi Pasien");
         System.out.printf("Masukkan Nama Pasien : ");
-        String NamaPasien;
-        NamaPasien = input.nextLine();
+        String NamaPasien = input.nextLine();
+        while (NamaPasien.length() > 20) {
+            System.out.println("Nama Pasien Maximal 20 Karakter");
+            System.out.printf("Masukkan Nama Pasien : ");
+            NamaPasien = input.nextLine();
+        }
         System.out.printf("Masukkan Alamat Pasien : ");
         String Alamat = input.nextLine();
-        System.out.printf("Masukkan Umur Pasien : ");
-        int Umur=0;
-        do{
+        while (Alamat.length() > 30) {
+            System.out.println("Alamat Pasien Maximal 30 Karakter");
+            System.out.printf("Masukkan Alamat Pasien : ");
+            Alamat = input.nextLine();
+        }
+
+        // System.out.printf("Masukkan Umur Pasien : ");
+        int Umur = 0;
+        // Umur = input.nextInt();
+        while (Umur < 1 || Umur > 150) {
             try {
+                System.out.printf("Masukkan Umur Pasien, ");
+                System.out.println("Umur Pasien Minimal 1 Tahun dan Maksimal 80 Tahun");
+                
                 Umur = input.nextInt();
             } catch (Exception e) {
                 System.out.println("Masukkan Angka");
             }
-        }while(Umur<0||Umur>80);
+        }
        
         Pasien Newpasien = new Pasien(NamaPasien, Alamat, Umur);
         System.out.print("\033c");
@@ -79,17 +95,31 @@ public class Main {
         System.out.println("====================================");
         System.out.printf("Masukkan Nama Pasien : ");
         String NamaPasien = input.nextLine();
+        while (NamaPasien.length() > 20) {
+            System.out.println("Nama Pasien Maximal 20 Karakter");
+            System.out.printf("Masukkan Nama Pasien : ");
+            NamaPasien = input.nextLine();
+        }
         System.out.printf("Masukkan Alamat Pasien : ");
         String Alamat = input.nextLine();
+        while (Alamat.length() > 30) {
+            System.out.println("Alamat Pasien Maximal 30 Karakter");
+            System.out.printf("Masukkan Alamat Pasien : ");
+            Alamat = input.nextLine();
+        }
+
         System.out.printf("Masukkan Umur Pasien : ");
         int Umur = 0;
-        do{
+        while (Umur < 1 || Umur > 80) {
             try {
-                Umur = input.nextInt();                
+                System.out.println("Umur Pasien Minimal 1 Tahun dan Maksimal 80 Tahun");
+                System.out.printf("Masukkan Umur Pasien : ");
+                Umur = input.nextInt();
             } catch (Exception e) {
                 System.out.println("Masukkan Angka");
             }
-        }while(Umur<0||Umur>80);
+        }
+
         input.nextLine();
         Reservasi Newpasien = new Reservasi();
         System.out.print("\033c");

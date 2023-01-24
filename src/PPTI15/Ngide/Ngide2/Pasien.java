@@ -9,7 +9,7 @@ public class Pasien{
     static String NamaPasien;
     static String Alamat;
     static int Umur;
-    static String Status="Sakit";
+    // static String Status="Sakit";
     static ArrayList<Reservasi> DataReservasi = new ArrayList<Reservasi>();
     static ArrayList<Pasien> DataPasiend = new ArrayList<Pasien>();
     static ArrayList<Praktek> DataPraktek = new ArrayList<Praktek>();
@@ -20,6 +20,8 @@ public class Pasien{
         this.NamaPasien = NamaPasien;
         this.Alamat = Alamat;
         this.Umur = Umur;
+    }
+    public Pasien(){
     }
     
     // update data Pasien

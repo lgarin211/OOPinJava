@@ -19,6 +19,10 @@ public class Fasilitas {
 
             System.out.printf("Masukkan nomor untuk melihat fasilitas : ");
             fasilitas = input.nextInt();
+            while (fasilitas < 1 || fasilitas > 5) {
+                System.out.println("Pilihan tidak tersedia");
+                fasilitas = input.nextInt();
+            }
             System.out.println(fasilitas);
             switch (fasilitas) {
                 case 1:

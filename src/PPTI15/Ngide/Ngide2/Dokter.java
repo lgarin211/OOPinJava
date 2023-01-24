@@ -38,10 +38,25 @@ public class Dokter{
         System.out.println("Silahkan Isi Data Diri Anda");
         System.out.print("Nama Dokter : ");
         NamaDokter=sc.nextLine();
+        while (NamaDokter.length() > 20) {
+            System.out.println("Nama Dokter Maximal 20 Karakter");
+            System.out.printf("Masukkan Nama Dokter : ");
+            NamaDokter = sc.nextLine();
+        }
         System.out.print("Spesialis : ");
         Spesialis=sc.nextLine();
-        System.out.print("Jadwal : ");
+        while (Spesialis.length() > 20) {
+            System.out.println("Spesialis Maximal 20 Karakter");
+            System.out.printf("Masukkan Spesialis : ");
+            Spesialis = sc.nextLine();
+        }
+        System.out.print("Jadwal [Pagi/Sore/Malam] : ");
         Jadwal=sc.nextLine();
+        while (Jadwal.equals("Pagi")||Jadwal.equals("Sore")||Jadwal.equals("Malam")) {
+            System.out.println("Jadwal [Pagi/Sore/Malam]");
+            System.out.printf("Masukkan Jadwal [Pagi/Sore/Malam]: ");
+            Jadwal = sc.nextLine();
+        }
         System.out.print("Ruangan : ");
         Ruangan=sc.nextLine();
         savedata(NamaDokter,Spesialis,Jadwal,Ruangan);
@@ -55,6 +70,11 @@ public class Dokter{
         String choose;
         System.out.print("Pilih Menu : ");
         choose=sc.next();
+        while (!choose.equals("1")&&!choose.equals("2")&&!choose.equals("3")) {
+            System.out.println("Pilihan Tidak Tersedia");
+            System.out.println("Pilih Menu : ");
+            choose=sc.next();
+        }
         // if(isNumeric)
         switch (choose) {
             case "1":
@@ -92,7 +112,11 @@ public class Dokter{
         do{
             Scanner rmp=new Scanner(System.in);
             System.out.print("Nama Dokter : ");
-            NamaDokter=rmp.nextLine();
+            NamaDokter=sc.nextLine();
+            if(NamaDokter.equals("")) {
+                NamaDokter = sc.nextLine();
+            }
+            System.out.println("name: '"+NamaDokter + "'");
 
             Dokter arta=new Dokter();
             for (int index = 0; index < arta.Datadokter.size(); index++) {
