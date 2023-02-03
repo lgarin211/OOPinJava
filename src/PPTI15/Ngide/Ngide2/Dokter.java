@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.*;
 
 public class Dokter{
-    String NamaDokter="empy";
-    String Spesialis="empy";
-    String Jadwal="empy";
-    String Ruangan="empy";
+    String NamaDokter;
+    String Spesialis;
+    String Jadwal;
+    String Ruangan;
     int setindex=-1;
 
     static Scanner sc = new Scanner(System.in);
@@ -38,10 +38,25 @@ public class Dokter{
         System.out.println("Silahkan Isi Data Diri Anda");
         System.out.print("Nama Dokter : ");
         NamaDokter=sc.nextLine();
+        while (NamaDokter.length() > 20) {
+            System.out.println("Nama Dokter Maximal 20 Karakter");
+            System.out.printf("Masukkan Nama Dokter : ");
+            NamaDokter = sc.nextLine();
+        }
         System.out.print("Spesialis : ");
         Spesialis=sc.nextLine();
-        System.out.print("Jadwal : ");
+        while (Spesialis.length() > 20) {
+            System.out.println("Spesialis Maximal 20 Karakter");
+            System.out.printf("Masukkan Spesialis : ");
+            Spesialis = sc.nextLine();
+        }
+        System.out.print("Jadwal [Pagi/Sore/Malam] : ");
         Jadwal=sc.nextLine();
+        while (Jadwal.equals("Pagi")||Jadwal.equals("Sore")||Jadwal.equals("Malam")) {
+            System.out.println("Jadwal [Pagi/Sore/Malam]");
+            System.out.printf("Masukkan Jadwal [Pagi/Sore/Malam]: ");
+            Jadwal = sc.nextLine();
+        }
         System.out.print("Ruangan : ");
         Ruangan=sc.nextLine();
         savedata(NamaDokter,Spesialis,Jadwal,Ruangan);
@@ -52,31 +67,39 @@ public class Dokter{
         System.out.println("1. Lihat Jadwal");
         System.out.println("2. Ubah Jadwal");
         System.out.println("3. logout");
-
-        int choose;
+        String choose;
         System.out.print("Pilih Menu : ");
-        choose=sc.nextInt();
+        choose=sc.next();
+        while (!choose.equals("1")&&!choose.equals("2")&&!choose.equals("3")) {
+            System.out.println("Pilihan Tidak Tersedia");
+            System.out.println("Pilih Menu : ");
+            choose=sc.next();
+        }
+        // if(isNumeric)
         switch (choose) {
-            case 1:
+            case "1":
                 System.out.print("\033c");
                 System.out.println("Jadwal : "+nowloginDokter.Jadwal);
                 System.out.println("Ruangan : "+nowloginDokter.Ruangan);
                 kerja();
                 break;
-            case 2:
+            case "2":
                 System.out.print("\033c");
                 System.out.println("Silahkan Ubah Jadwal");
-                System.out.print("Jadwal : ");
-                nowloginDokter.Jadwal=sc.next();
+                do{
+                    System.out.print("Jadwal [Pagi/Sore/Malam]: ");
+                    nowloginDokter.Jadwal=sc.next();
+                }while(!nowloginDokter.Jadwal.equals("Pagi")&&!nowloginDokter.Jadwal.equals("Sore")&&!nowloginDokter.Jadwal.equals("Malam"));
+                
                 System.out.print("Ruangan : ");
                 nowloginDokter.Ruangan=sc.next();
                 nowloginDokter.Datadokter.set(setindex, nowloginDokter);
                 kerja();
                 break;
-            case 3:
+            case "3":
                 System.out.print("\033c");
-                System.out.println("Terimakasih");
-                Main.main(null);
+                System.out.println("Terima kasih");
+                // Main.main(null);
                 break;
             default:
                 break;
@@ -85,16 +108,31 @@ public class Dokter{
     // login
     public void login(){
         System.out.println("Silahkan Login");
-        System.out.print("Nama Dokter : ");
-        NamaDokter=sc.nextLine();
-        Dokter arta=new Dokter();
-        for (int index = 0; index < arta.Datadokter.size(); index++) {
-            Dokter oldDokter=arta.Datadokter.get(index);
-            if (oldDokter.NamaDokter.equals(NamaDokter)) {
-                nowloginDokter = oldDokter;
-                setindex=index;
+        int p=0;
+        do{
+            Scanner rmp=new Scanner(System.in);
+            System.out.print("Nama Dokter : ");
+            NamaDokter=sc.nextLine();
+            if(NamaDokter.equals("")) {
+                NamaDokter = sc.nextLine();
             }
-        }
-        kerja();
+            System.out.println("name: '"+NamaDokter + "'");
+
+            Dokter arta=new Dokter();
+            for (int index = 0; index < arta.Datadokter.size(); index++) {
+                Dokter oldDokter=arta.Datadokter.get(index);
+                if (oldDokter.NamaDokter.equals(NamaDokter)) {
+                    nowloginDokter = oldDokter;
+                    setindex=index;
+                    // p=1;
+                    kerja();
+                    break;
+                }else{
+                    // System.out.println("ri");
+                    p=1;
+                }
+            }
+    
+        }while(p!=0);
     }
 }

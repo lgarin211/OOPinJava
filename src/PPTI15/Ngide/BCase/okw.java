@@ -1,5 +1,5 @@
 
-package PPTI15.Ngide.Ngide2;
+package PPTI15.Ngide.BCase;
 
 import java.io.*;
 import java.net.URLEncoder;
@@ -31,13 +31,15 @@ public class okw {
             // Add headers
             con.setRequestMethod("POST");
             con.setRequestProperty("Content-Type", "application/json");
-            con.setRequestProperty("Authorization", "Bearer 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");
-            // String w="Apa Penyebap sakit,mual,muntah";
-            // Send the request
+            con.setRequestProperty("Authorization", "Bearer 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");
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
+<<<<<<< HEAD:src/PPTI15/Ngide/Ngide2/okw.java
             wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5,\"max_tokens\":300}");
             // wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5}");
+=======
+            wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5,\"max_tokens\":200}");
+>>>>>>> 708f246a0cf9029e20c8e8ea5f5314ea1189bce7:src/PPTI15/Ngide/BCase/okw.java
             wr.flush();
             wr.close();
 
