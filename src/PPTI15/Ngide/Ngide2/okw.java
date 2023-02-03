@@ -36,7 +36,7 @@ public class okw {
             // Send the request
             con.setDoOutput(true);
             DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5,\"max_tokens\":500}");
+            wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5,\"max_tokens\":300}");
             // wr.writeBytes("{\"prompt\":\""+w+"\",\"temperature\":0.5}");
             wr.flush();
             wr.close();
