@@ -347,7 +347,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         int pilih;
         do {
-            pilih= = input.nextInt();
+            pilih= input.nextInt();
         } while (!(pilih>0 && pilih<=3));
         switch (pilih){
             case 1:
