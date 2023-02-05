@@ -47,6 +47,8 @@ public class Sekolah {
 
     }
     static Sekolah sekolah = new Sekolah();
+    
+
     public static void main(String[] args) {
         // sekolah.input.nextLine();
         sekolah.DUMMY();
@@ -157,7 +159,7 @@ public class Sekolah {
                             i = 0;
                             for (MATAKULIAH matkul: DataMataPelajaran) {
                                 if (matkul.NIP.equals(NIP)) {
-                                    System.out.println("id : "+i);
+                                    System.out.println("id : "+DataMataPelajaran.indexOf(matkul));
                                     System.out.println("+++++++++++++++++++++++");
                                     matkul.getdata();
                                     System.out.println("+++++++++++++++++++++++");
@@ -171,7 +173,7 @@ public class Sekolah {
                             i = 0;
                             for (MATAKULIAH matkul: DataMataPelajaran) {
                                 if (matkul.NIP.equals(NIP)) {
-                                    System.out.println("id : "+i);
+                                    System.out.println("id : "+DataMataPelajaran.indexOf(matkul));
                                     System.out.println("+++++++++++++++++++++++");
                                     matkul.getdata();
                                     System.out.println("+++++++++++++++++++++++");
