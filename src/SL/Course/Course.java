@@ -40,4 +40,7 @@ public class Course {
         this.namaCourse = namaCourse;
     }
 
+    public void stream() {
+    }
+
 }

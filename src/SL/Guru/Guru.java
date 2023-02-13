@@ -1,5 +1,9 @@
 package SL.Guru;
 
+import java.util.ArrayList;
+
+import SL.Course.Course;
+
 public class Guru {
     int idGuru;
     String namaGuru;
@@ -48,4 +52,9 @@ public class Guru {
         this.passwordGuru = passwordGuru;
     }
     
+
+    public ArrayList<Course> courses = new ArrayList<>();
+    Course getCourse(Arra){
+        
+    }
 }

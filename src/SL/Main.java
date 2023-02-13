@@ -3,7 +3,6 @@ package SL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.sound.sampled.SourceDataLine;
 import javax.xml.crypto.Data;
 
 import SL.Course.Course;
@@ -21,50 +20,33 @@ public class Main {
     public static ArrayList<EXM> Dataexam = new ArrayList<>();
     public static ArrayList<ASG> DataASG = new ArrayList<ASG>();
 
+
     public static Siswa Activesiswa = null;
     public static Guru Activeguru = null;
 
     public static void Dummy(){
-        Datagurus.add(new Guru (1, "Agustinus Tobing", "agus@gmail.com", "agus123"));
-        Datagurus.add(new Guru (2, "Martinus Pardamean", "mar@gmail.com", "mar123"));
-        Datagurus.add(new Guru (3, "Jack Griffo", "jack@gmail.com", "jack123"));
-        Datagurus.add(new Guru (4, "Tom Jerry", "tom@gmail.com", "tom123"));
-
         Datacourses.add(new Course (1, 1, "Matematika"));
         Datacourses.add(new Course (2, 2, "Bahasa Indonesia"));
-        Datacourses.add(new Course (3, 3, "Bahasa Inggris"));
-        Datacourses.add(new Course (4, 4, "Kimia"));
+
+        Datagurus.add(new Guru (1, "Agustinus Tobing", "agus@gmail.com", "agus123"));
+        Datagurus.get(0).courses.add(Datacourses.get(0));
+        Datagurus.add(new Guru (2, "Martinus Pardamean", "mar@gmail.com", "mar123"));
+
 
         Datasiswa.add(new Siswa (1, "Leo Damanik", "leo@gmail.com", "leo123"));
-        Datasiswa.add(new Siswa (2, "Valerie Savira", "val@gmail.com", "val123"));
-        Datasiswa.add(new Siswa (3, "Cindy Aprilia", "cin@gmail.com", "cin123"));
-        Datasiswa.add(new Siswa (4, "Keira Devon", "kei@gmail.com", "kei123"));
+        Datasiswa.add(new Siswa (2, "VINDISEL", "val@gmail.com", "val123"));
+        Datasiswa.add(new Siswa (3, "UKARI POLIMOR", "cin@gmail.com", "cin123"));
+        Datasiswa.add(new Siswa (4, "KISPOLITAN", "kei@gmail.com", "kei123"));
         
         DataASG.add(new ASG (1, 1, "Matematika", 1, 1));
         DataASG.add(new ASG (2, 1, "Bahasa Indonesia", 2, 2));
-        DataASG.add(new ASG (3, 3, "Bahasa Inggris", 3, 3));
-        DataASG.add(new ASG (4, 4, "Kimia", 4, 4));
+        DataASG.add(new ASG (3, 1, "Bahasa Inggris", 3, 3));
+        DataASG.add(new ASG (4, 2, "Kimia", 4, 4));
 
         Dataexam.add(new EXM (1, 1, "Matematika", 1, 1));
         Dataexam.add(new EXM (2, 1, "Bahasa Indonesia", 2, 2));
-        Dataexam.add(new EXM (3, 3, "Bahasa Inggris", 3, 3));
-        Dataexam.add(new EXM (4, 4, "Kimia", 4, 4));
-    }
-
-    public static void addCourse(Course course){
-        Datacourses.add(course);
-    }
-
-    public static void addGuru(Guru guru){
-        Datagurus.add(guru);
-    }
-
-    public static void addSiswa(Siswa siswa){
-        Datasiswa.add(siswa);
-    }
-
-    public static void addASG(ASG asg){
-        DataASG.add(asg);
+        Dataexam.add(new EXM (3, 1, "Bahasa Inggris", 3, 3));
+        Dataexam.add(new EXM (4, 2, "Kimia", 4, 4));
     }
 
 
@@ -73,46 +55,9 @@ public class Main {
         System.out.flush();
     }
 
-    public static void showCourse(){
-        for (Course course : Datacourses) {
-            System.out.println("===================================");
-            int index=Datacourses.indexOf(course);
-            System.out.println(index+". : ");
-            System.out.println("ID Course : "+course.getIdCourse());
-            System.out.println("ID Guru : "+course.getIdGuru());
-            System.out.println("Nama Course : "+course.getNamaCourse());
-            System.out.println("===================================");
-        }
-    }
-
-    public static void showGuru(){
-        for (Guru guru : Datagurus) {
-            System.out.println("===================================");
-            int index=Datagurus.indexOf(guru);
-            System.out.println(index+". : ");
-            System.out.println("ID Guru : "+guru.getIdGuru());
-            System.out.println("Nama Guru : "+guru.getNamaGuru());
-            System.out.println("Email Guru : "+guru.getEmailGuru());
-            System.out.println("Password Guru : "+guru.getPasswordGuru());
-            System.out.println("===================================");
-        }
-    }
-
-    public static void showSiswa(){
-        for (Siswa siswa : Datasiswa) {
-            System.out.println("===================================");
-            int index=Datasiswa.indexOf(siswa);
-            System.out.println(index+". : ");
-            System.out.println("ID Siswa : "+siswa.getIdSiswa());
-            System.out.println("Nama Siswa : "+siswa.getNamaSiswa());
-            System.out.println("Email Siswa : "+siswa.getEmailSiswa());
-            System.out.println("Password Siswa : "+siswa.getPasswordSiswa());
-            System.out.println("===================================");
-        }
-    }
-
     // login Guru
     public static Guru GuruLogin(){
+        new ovl().link();
         boolean run=true;
         Guru Data=null;
         while (true) {
@@ -138,6 +83,7 @@ public class Main {
 
     // login Siswa
     public static Siswa SiswaLogin(){
+        new ovl().link();
         boolean run=true;
         Siswa Data=null;
 
@@ -166,6 +112,7 @@ public class Main {
 
     public static void Guru(){
         clearScreen();
+        new ovl().link();
         ArrayList<Siswa> MySiswa = new ArrayList<Siswa>();
         ArrayList<EXM> Myexam = new ArrayList<EXM>();
         ArrayList<ASG> MyASG = new ArrayList<ASG>();
@@ -321,6 +268,7 @@ public class Main {
     public static void Siswa(){
         boolean run=true;
         clearScreen();
+        new ovl().link();
         while(run){
         ArrayList<ASG> MyASG = new ArrayList<ASG>();
         ArrayList<EXM> Myexam = new ArrayList<EXM>();
@@ -437,7 +385,7 @@ public class Main {
 
     public static void main(String[] args) {
         Dummy();
-
+        
         boolean run=true;
         while (run) {
             clearScreen();
@@ -455,7 +403,7 @@ public class Main {
             System.out.println("Silahkan Pilih Menu di Bawah Ini : ");
             System.out.println("1. Login Guru");
             System.out.println("2. Login Siswa");
-            System.out.println("3. Exit Program");
+            System.out.println("3. Keluar Aplikasi");
             System.out.println("===================================");
             System.out.print("Pilih [1-3] : ");
              
