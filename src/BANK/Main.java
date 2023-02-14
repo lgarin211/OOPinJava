@@ -11,6 +11,7 @@ public class Main {
     public static ArrayList<User> Datausers = new ArrayList<User>();
     public static ArrayList<Log> DataLog = new ArrayList<Log>();
     public static ArrayList<Deposito> DataDeposito = new ArrayList<Deposito>();
+    public static ArrayList<Tabungan> DataTabungan = new ArrayList<Tabungan>();
     
     public static User ActiveUser=null;
     public static Scanner is=new Scanner(System.in);
@@ -27,27 +28,27 @@ public class Main {
         }
     }
     public static void dummy(){
-        Datausers.add(new User("1234567890", "Rizky", "252531", 1000000));
-        Datausers.add(new User("1234567891", "Rudy", "252531", 90000000)); 
-        Datausers.add(new User("121", "Rizal", "212", 8000000));
+        Datausers.add(new User("1234567890", "Rizky Febrian", "252531", 1000000));
+        Datausers.add(new User("1234567891", "Rudy Hartono", "252531", 90000000)); 
+        Datausers.add(new User("121", "Rizal Wijaya Purnama", "212", 8000000));
         
         DataDeposito.add(new Deposito(DataDeposito.size(), 2000000,200, 3, "123",LocalDate.of(2022, 8, 1)));
 
     }
     
     public static void auth(){
-        while(ActiveUser==null){
-            System.out.println("nomor Rekening : ");
+        while(ActiveUser == null){
+            System.out.print("Nomor Rekening : ");
             String norek = is.nextLine();
-            System.out.println("Pin : ");        
+            System.out.print("Masukkan Pin : ");
             String pin = is.nextLine();
             ActiveUser = new User().LoginUser(norek, pin);
+
             if(ActiveUser==null){
-                System.out.println("Norek atau Pin Salah");
+                System.out.println("Nomor Rekening atau Pin Salah");
             }
         }
     }
-
 
     public static void Nasabah(){
         ActiveUser.MenuUser();
@@ -57,14 +58,25 @@ public class Main {
         dummy();
         boolean status=true;
         while(status){
-            System.out.println("Selamat Datang di Bank PPTI");
+            clear();
+            System.out.println("Selamat Datang di Bank ABC");
             System.out.println("Silahkan Login Terlebih Dahulu");
-            System.out.println("=====================================");
+            System.out.println("==============================");
             auth();
-            System.out.println("=====================================");
-            System.out.println("Selamat Datang "+ActiveUser.Nama);
-            System.out.println("=====================================");
+            clear();
+            
             Nasabah();
         }       
+    }
+
+    public static void enter(){
+        Scanner input = new Scanner(System.in);
+        System.out.print("Tekan Enter untuk melanjutkan...");
+        input.nextLine();
+    }
+
+    public static void clear(){
+        System.out.print("\033[H\033[2J");  
+        System.out.flush();
     }
 }

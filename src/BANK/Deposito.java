@@ -34,9 +34,9 @@ public class Deposito extends User{
     }
 
     public void addeposito(String norek){
-        System.out.println("Masukan Jumlah Uang : ");
+        System.out.print("Masukan Jumlah Uang : ");
         int uang = is.nextInt();
-        System.out.println("Masukan Lama Deposito [3/6/12] bulan: ");
+        System.out.print("Masukan Lama Deposito [3/6/12] bulan: ");
         int longdeposito;
         do{
             longdeposito=is.nextInt();
@@ -66,7 +66,7 @@ public class Deposito extends User{
             for (int i = 0; i < MyDeposito.size(); i++) {
                 System.out.println((i+1)+". Tanggal Deposito : "+MyDeposito.get(i).date+" Total Deposito = "+(MyDeposito.get(i).DepositoSaldo+MyDeposito.get(i).DepositoBunga));
             }
-            System.out.print(">>>");
+            System.out.print(">> ");
             indexdeposito=is.nextInt();
         } while (!(indexdeposito<=MyDeposito.size()));
 
@@ -79,7 +79,7 @@ public class Deposito extends User{
             double tarik;
             do {
                 System.out.println("Anda Dapat Menarik : "+totalsaldo);
-                System.out.println("Masukan Jumlah Uang Yang Akan Di Tarik : [0-"+totalsaldo+"]");
+                System.out.print("Masukan Jumlah Uang Yang Akan Di Tarik : [50000-"+totalsaldo+"]");
                 tarik=ss.nextInt();
             } while (!(tarik<=totalsaldo));
             

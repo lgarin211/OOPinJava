@@ -23,7 +23,7 @@ public class User {
     }
 
     public void clearscrean(){
-        System.out.println("Enter To continue ... ");
+        System.out.println("Tekan Enter untuk melanjutkan ... ");
         ss.nextLine();
         System.out.println("\033[H\033[2J");
         System.out.flush();
@@ -55,20 +55,16 @@ public class User {
     }
 
     public void addsaldo() {
-        System.out.println("Pilih Jenis Penyimpanan : ");
         System.out.println("1. Tabungan");
         System.out.println("2. Deposito");
+        System.out.print("Pilih Jenis Penyimpanan : ");
+        
 
         int pilih = is.nextInt();
         switch (pilih) {
             case 1:
-                if(Totaltarikan()){
-                    System.out.println("Masukan Jumlah Uang : ");
-                    double uang = is.nextInt();
-                    this.Saldo = this.Saldo + uang;
-                    Main.Datausers.get(Main.Datausers.indexOf(this)).Saldo = this.Saldo;
-                    Main.DataLog.add(new Log(Main.DataLog.size()+1, acviUser.Norek, "Setor Tabungan "+uang, acviUser.Saldo));
-                }
+                Tabungan tab = new Tabungan();
+                tab.BuatTabungan();
                 break;
             case 2:
                 Deposito depo = new Deposito();
@@ -80,22 +76,16 @@ public class User {
     public void tariksaldo() {
         int pilih=0;
         do {
-            System.out.println("Pilih Jenis Penarikan : ");
             System.out.println("1. Tabungan");
             System.out.println("2. Deposito");
+            System.out.print("Pilih Jenis Penarikan : ");
+            
             pilih = is.nextInt();
         } while (!(pilih<3));
         switch (pilih) {
             case 1:
-                double uang ;
-                do {
-                    System.out.println("Masukan Jumlah Uang : ");
-                    uang = is.nextInt();
-                } while (!(uang<=this.Saldo));
-                
-                this.Saldo = this.Saldo - uang;
-                Main.Datausers.get(Main.Datausers.indexOf(this)).Saldo = this.Saldo;
-                Main.DataLog.add(new Log(Main.DataLog.size()+1, acviUser.Norek, "Tarik Tabungan "+uang, acviUser.Saldo));
+                Tabungan tab = new Tabungan();
+                tab.TarikSaldo();
                 break;
             case 2:
                 Deposito depo = new Deposito();
@@ -105,6 +95,9 @@ public class User {
     }
 
     public static void graf(){
+        System.out.println("===================================================");
+        System.out.println("Selamat Datang di ABC Bank, "+Main.ActiveUser.Nama);
+        System.out.println("===================================================");
         System.out.println("   ___  ______  _____  ______  ___   _   _  _   __");
         System.out.println("  / _ \\ | ___ \\/  __ \\ | ___ \\/ _ \\ | \\ | || | / /");
         System.out.println(" / /_\\ \\| |_/ /| /  \\/ | |_/ / /_\\ \\|  \\| || |/ / ");
@@ -112,7 +105,7 @@ public class User {
         System.out.println(" | | | || |_/ /| \\__/\\ | |_/ / | | || |\\  || |\\  \\");
         System.out.println(" \\_| |_/\\____/  \\____/ \\____/\\_| |_/\\_| \\_/\\_| \\_/");
         System.out.println("                                                        ");
-       System.out.println("========================================================");
+        System.out.println("===================================================");
     }
 
     public void MenuUser(){
@@ -126,35 +119,62 @@ public class User {
                 System.out.println("1. Cek Saldo");
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
-                System.out.println("4. Mutasi");
+                System.out.println("4. Mutasi Rekening");
                 System.out.println("5. Keluar");
-                System.out.println("Pilih : ");
+                System.out.println("===================================================");
+                System.out.print("Pilih >> ");
                 pilih = is.nextInt();    
             } while (!(pilih<=5));
-            System.out.println(acviUser.Nama);
+            
             switch (pilih) {
                 case 1:
-                    System.out.println("Saldo Anda : "+acviUser.Saldo);
+                    Main.clear();
+                    double Saldo=0;
+                    for (Tabungan temp : Main.DataTabungan) {
+                        if (temp.Norek.equals(acviUser.Norek)) {
+                            Saldo+=temp.Saldo;
+                        }
+                    }
+                        
+                    // for (Deposito temp : Main.DataDeposito) {
+                    //     if (temp.Norek.equals(acviUser.Norek)) {
+                    //         Saldo+=temp.Saldo;
+                    //     }
+                    // }
+
+                    System.out.println("Hallo, "+(acviUser.Nama));
+                    System.out.println("Saldo Anda : "+String.format("%,.2f",Saldo));
+                    Main.enter();
+                    Main.clear();
                     break;
                 case 2:
+                    Main.clear();
+                    System.out.println("Hallo, "+(acviUser.Nama));
                     tariksaldo();
                     clearscrean();
                     break;
                 case 3:
+                    Main.clear();
+                    System.out.println("Hallo, "+(acviUser.Nama));
                     addsaldo();
                     clearscrean();
                     break;
                 case 4:
-                    System.out.println("Mutasimu");
-                    for (int i = 0; i < Main.DataLog.size(); i++) {
-                        if (Main.DataLog.get(i).Norek.equals(acviUser.Norek)) {
-                            System.out.println(Main.DataLog.get(i).Tanggal+"|"+Main.DataLog.get(i).Keterangan+"|"+Main.DataLog.get(i).Saldo);
-                        }
+                    Main.clear();
+                    System.out.println("Hallo, "+(acviUser.Nama));
+                    System.out.println("Mutasi Rekening Anda");
+                    System.out.println("====================");
+
+                    for (Log temp : Main.DataLog) {
+                        if (temp.Norek.equals(acviUser.Norek)) {
+                            System.out.println(temp.Tanggal+"|"+temp.Keterangan+"|");
+                        }   
                     }
                     clearscrean();
                 break;
                 case 5:
-                    System.out.println("Terima Kasih Telah Menggunakan ATM PPTI");
+                    
+                    System.out.println("Terima Kasih Telah Menggunakan Bank ABC");
                     Main.ActiveUser=null;
                     status=false;
                     clearscrean();
@@ -179,5 +199,6 @@ public class User {
         }
         return user;
     }
+    
     
 }
