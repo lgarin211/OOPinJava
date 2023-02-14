@@ -22,12 +22,14 @@ public class User {
         this.Saldo = saldo;
     }
 
+    
+
     public void clearscrean(){
         System.out.println("Tekan Enter untuk melanjutkan ... ");
         ss.nextLine();
         System.out.println("\033[H\033[2J");
         System.out.flush();
-        System.out.println("=====================================");
+        // System.out.println("=====================================");
     }
 
     public User() {
@@ -60,7 +62,7 @@ public class User {
         System.out.print("Pilih Jenis Penyimpanan : ");
         
 
-        int pilih = is.nextInt();
+        int pilih = Main.validangka();
         switch (pilih) {
             case 1:
                 Tabungan tab = new Tabungan();
@@ -80,7 +82,7 @@ public class User {
             System.out.println("2. Deposito");
             System.out.print("Pilih Jenis Penarikan : ");
             
-            pilih = is.nextInt();
+            pilih = Main.validangka();
         } while (!(pilih<3));
         switch (pilih) {
             case 1:
@@ -113,17 +115,19 @@ public class User {
         // System.out.println("Jalan");
         boolean status=true;
         while(status){
-            graf();
+
             int pilih;
             do {
+                System.out.println("\033[H\033[2J");
+                graf();
                 System.out.println("1. Cek Saldo");
                 System.out.println("2. Tarik Tunai");
                 System.out.println("3. Setor Tunai");
                 System.out.println("4. Mutasi Rekening");
                 System.out.println("5. Keluar");
                 System.out.println("===================================================");
-                System.out.print("Pilih >> ");
-                pilih = is.nextInt();    
+                System.out.print("Pilih ");
+                pilih = Main.validangka();    
             } while (!(pilih<=5));
             
             switch (pilih) {
@@ -167,7 +171,7 @@ public class User {
 
                     for (Log temp : Main.DataLog) {
                         if (temp.Norek.equals(acviUser.Norek)) {
-                            System.out.println(temp.Tanggal+"|"+temp.Keterangan+"|");
+                            System.out.println(temp.Tanggal+"|"+temp.Keterangan+"|"+temp.Saldo);
                         }   
                     }
                     clearscrean();

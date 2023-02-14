@@ -35,11 +35,11 @@ public class Deposito extends User{
 
     public void addeposito(String norek){
         System.out.print("Masukan Jumlah Uang : ");
-        int uang = is.nextInt();
+        int uang = Main.validangka();
         System.out.print("Masukan Lama Deposito [3/6/12] bulan: ");
         int longdeposito;
         do{
-            longdeposito=is.nextInt();
+            longdeposito=Main.validangka();
         }while(!(longdeposito==3||longdeposito==6||longdeposito==12));
         System.out.println("Anda Telah Melakukan Deposito Sebesar "+uang+" Dengan Lama "+longdeposito+" Bulan");
         int bunga=uang*longdeposito/100;
@@ -53,6 +53,9 @@ public class Deposito extends User{
     public void tarikdeposito(String norek){
         int Total_Deposito=0;
         ArrayList<Deposito> MyDeposito=new ArrayList<Deposito>();
+
+        
+
         for (Deposito dep : Main.DataDeposito) {
             if(dep.norek.equals(norek)){
                 Total_Deposito+=dep.DepositoSaldo+dep.DepositoBunga;
@@ -60,36 +63,42 @@ public class Deposito extends User{
             }            
         }
         int indexdeposito=0;
-        do {
-            System.out.println("Total Deposito Anda Adalah" + Total_Deposito);
-            System.out.println("Silahkan Pilih Deposito Yang Akan Di Tarik");
-            for (int i = 0; i < MyDeposito.size(); i++) {
-                System.out.println((i+1)+". Tanggal Deposito : "+MyDeposito.get(i).date+" Total Deposito = "+(MyDeposito.get(i).DepositoSaldo+MyDeposito.get(i).DepositoBunga));
-            }
-            System.out.print(">> ");
-            indexdeposito=is.nextInt();
-        } while (!(indexdeposito<=MyDeposito.size()));
 
-        Deposito selectedDeposito=MyDeposito.get(indexdeposito-1);
-        Period lama_Deposito=selectedDeposito.date.until(LocalDate.now());
-        System.out.println("Lama Deposito Adalah "+lama_Deposito.getMonths()+" Bulan");
-
-        if (lama_Deposito.getMonths()<=selectedDeposito.DepositoLama) {
-            int totalsaldo=selectedDeposito.DepositoSaldo+(selectedDeposito.DepositoSaldo*lama_Deposito.getMonths()/100);
-            double tarik;
+        if (MyDeposito.size()==0) {
+            System.out.println("Anda Belum Punya Deposito");
+        }else{
             do {
-                System.out.println("Anda Dapat Menarik : "+totalsaldo);
-                System.out.print("Masukan Jumlah Uang Yang Akan Di Tarik : [50000-"+totalsaldo+"]");
-                tarik=ss.nextInt();
-            } while (!(tarik<=totalsaldo));
-            
-            System.out.println("Anda Telah Menarik Deposito Sebesar "+(tarik));
-            Main.DataDeposito.get(Main.DataDeposito.indexOf(selectedDeposito)).DepositoSaldo-=tarik;
-            tarik=tarik-(tarik*0.01)-50000;
-            double bunga=(tarik*lama_Deposito.getMonths()/100-50000);
-            int index=Main.DataDeposito.indexOf(selectedDeposito);
-            Main.DataDeposito.get(index).DepositoBunga-=bunga;
-            Main.DataLog.add(new Log(Main.DataLog.size(),norek,"Tarik Deposito "+tarik ,Main.DataDeposito.get(Main.DataDeposito.indexOf(selectedDeposito)).DepositoSaldo));
-        }
+                System.out.println("Total Deposito Anda Adalah" + Total_Deposito);
+                System.out.println("Silahkan Pilih Deposito Yang Akan Di Tarik");
+                for (int i = 0; i < MyDeposito.size(); i++) {
+                    System.out.println((i+1)+". Tanggal Deposito : "+MyDeposito.get(i).date+" Total Deposito = "+(MyDeposito.get(i).DepositoSaldo+MyDeposito.get(i).DepositoBunga));
+                }
+                System.out.print(">> ");
+                indexdeposito=Main.validangka();
+            } while (!(indexdeposito<=MyDeposito.size()));
+    
+            Deposito selectedDeposito=MyDeposito.get(indexdeposito-1);
+            Period lama_Deposito=selectedDeposito.date.until(LocalDate.now());
+            System.out.println("Lama Deposito Adalah "+lama_Deposito.getMonths()+" Bulan");
+    
+            if (lama_Deposito.getMonths()<=selectedDeposito.DepositoLama) {
+                int totalsaldo=selectedDeposito.DepositoSaldo+(selectedDeposito.DepositoSaldo*lama_Deposito.getMonths()/100);
+                double tarik;
+                do {
+                    System.out.println("Anda Dapat Menarik : "+totalsaldo);
+                    System.out.print("Masukan Jumlah Uang Yang Akan Di Tarik : [50000-"+totalsaldo+"]");
+                    tarik=Main.validangka();
+                } while (!(tarik<=totalsaldo));
+                
+                System.out.println("Anda Telah Menarik Deposito Sebesar "+(tarik));
+                Main.DataDeposito.get(Main.DataDeposito.indexOf(selectedDeposito)).DepositoSaldo-=tarik;
+                tarik=tarik-(tarik*0.01)-50000;
+                double bunga=(tarik*lama_Deposito.getMonths()/100-50000);
+                int index=Main.DataDeposito.indexOf(selectedDeposito);
+                Main.DataDeposito.get(index).DepositoBunga-=bunga;
+                Main.DataLog.add(new Log(Main.DataLog.size(),norek,"Tarik Deposito "+tarik ,Main.DataDeposito.get(Main.DataDeposito.indexOf(selectedDeposito)).DepositoSaldo));
+            }
+        } 
+        
     }
 }

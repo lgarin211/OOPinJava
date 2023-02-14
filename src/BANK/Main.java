@@ -21,6 +21,29 @@ public class Main {
         return Datausers;
     }
 
+    public static int validangka(){
+        Scanner scan = new Scanner(System.in);
+        int a=0;
+        boolean nom = false;
+        do {
+            try {
+                System.out.print(">> ");
+                String input = scan.next();
+                if (input.matches("-?\\d+(\\.\\d+)?")) {
+                    a = Integer.parseInt(input);
+                    nom=true;
+                } else {
+                    System.out.println("Harus berupa angka");
+                    nom = false;
+                }
+            } catch (Exception e) {
+                System.out.println("Harus berupa angka");
+                nom = false;
+            }
+        } while(nom==false);
+        return a;
+    }
+
     public static void addBunga_Tabungan() {
         for (User user : Datausers) {
             user.Saldo = user.Saldo + (user.Saldo * (0.025/12));

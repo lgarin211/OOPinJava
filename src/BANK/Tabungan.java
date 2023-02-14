@@ -55,8 +55,17 @@ public class Tabungan{
                 p++;
             }
         }
-        System.out.print("Pilih Tabungan : ");
-        int pil=scanInt.nextInt()-1;
+
+        if (MyTabungan.size()==0) {
+            System.out.println("Anda Belum Punya Tabungan");
+        }else{
+        int pil=999;
+        while (pil>MyTabungan.size()) {
+            System.out.print("Pilih Tabungan : ["+MyTabungan.size()+"]");
+            pil=Main.validangka()-1;            
+        }
+
+       
         Tabungan Selected=MyTabungan.get(pil);
 //        Proses Penarikan
         double Tarik=0;
@@ -71,10 +80,11 @@ public class Tabungan{
         System.out.printf("Anda Menarik : %.2f\n",Tarik);
         System.out.println("Sisah Saldo Anda : "+ Selected.Saldo);
         System.out.println();
-        Main.DataLog.add(new Log(Main.DataLog.size(),Main.ActiveUser.Norek,"TARIK TABUNGAN", Saldo));
+        Main.DataLog.add(new Log(Main.DataLog.size(),Main.ActiveUser.Norek,"TARIK TABUNGAN", Selected.Saldo));
         // int id, String norek, String keterangan, double saldo.add(new Log("TARIK TABUNGAN", Tarik, Selected.Saldo)Main.DataLog.size(),);
         System.out.println();
         // Main.Transaksi();
+    }
     }
 
     void TambahSaldo(){
@@ -92,12 +102,12 @@ public class Tabungan{
             p++;
         }
         System.out.print("Pilih Tabungan : ");
-        int pil=scanInt.nextInt()-1;
+        int pil=Main.validangka()-1;
         Tabungan Selected=MyTabungan.get(pil);
 
         //proses tambah saldo
         System.out.print("Banyak saldo yang ingiin ditabung : ");
-        double tambah=scanInt.nextInt();
+        double tambah=Main.validangka();
         Selected.Saldo+=tambah;
         System.out.printf("Total Saldo anda sekarang : %.1f\n" , Selected.Saldo);
 //        System.out.println();
