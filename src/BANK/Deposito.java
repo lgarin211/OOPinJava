@@ -68,7 +68,7 @@ public class Deposito extends User{
             System.out.println("Anda Belum Punya Deposito");
         }else{
             do {
-                System.out.println("Total Deposito Anda Adalah" + Total_Deposito);
+                System.out.println("Total Deposito Anda Adalah " + Total_Deposito);
                 System.out.println("Silahkan Pilih Deposito Yang Akan Di Tarik");
                 for (int i = 0; i < MyDeposito.size(); i++) {
                     System.out.println((i+1)+". Tanggal Deposito : "+MyDeposito.get(i).date+" Total Deposito = "+(MyDeposito.get(i).DepositoSaldo+MyDeposito.get(i).DepositoBunga));

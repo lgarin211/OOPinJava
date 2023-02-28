@@ -1,0 +1,266 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main",
+            "request": "launch",
+            "mainClass": "BANK.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Interface",
+            "request": "launch",
+            "mainClass": "LOC.Interface",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch PATBANK",
+            "request": "launch",
+            "mainClass": "LOC.PATBANK",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch C",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.BCase.C",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch run",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.CODIPON.run",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Try",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.MATCH.Try",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch AWT",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.Masyarakat.AWT",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(1)",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.Masyarakat.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(2)",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.Ngide2.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(3)",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.Ngide2.RIZAL.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Mainn",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.Ngide2.VINA.Mainn",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch conto1",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.conto1",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch i1",
+            "request": "launch",
+            "mainClass": "PPTI15.Ngide.i1",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch ranma",
+            "request": "launch",
+            "mainClass": "PPTI15.SL.SEKOLAH.ranma",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch sekolah",
+            "request": "launch",
+            "mainClass": "PPTI15.SL.SEKOLAH.sekolah",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Welcome",
+            "request": "launch",
+            "mainClass": "PPTI15.Session01.Welcome",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(4)",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Clock",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.SL1.Clock",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch CountingIPK",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.SL1.CountingIPK",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Crox",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.SL1.Crox",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Palindrom",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.SL1.Palindrom",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch matrix",
+            "request": "launch",
+            "mainClass": "PPTI15.Session02.SL1.matrix",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Array",
+            "request": "launch",
+            "mainClass": "PPTI15.Session03.Array",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch ACC",
+            "request": "launch",
+            "mainClass": "PPTI15.Session03.SL2.ACC",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch ACC2",
+            "request": "launch",
+            "mainClass": "PPTI15.Session03.SL2.ACC2",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch ACC3",
+            "request": "launch",
+            "mainClass": "PPTI15.Session03.SL2.ACC3",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch main",
+            "request": "launch",
+            "mainClass": "PPTI15.Session04.main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch MainMenu",
+            "request": "launch",
+            "mainClass": "PPTI15.Session5.Menu.MainMenu",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(5)",
+            "request": "launch",
+            "mainClass": "PPTI15.Session6.Main.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(6)",
+            "request": "launch",
+            "mainClass": "PPTI15.Session6.SL.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Sekolah",
+            "request": "launch",
+            "mainClass": "PPTI15.Session6.TRYSL2.SEKOLAH.Sekolah",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(7)",
+            "request": "launch",
+            "mainClass": "PPTI15.TutorIBRENDI.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Welcome(1)",
+            "request": "launch",
+            "mainClass": "PPTI16.Session01.Welcome",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Inputan",
+            "request": "launch",
+            "mainClass": "PPTI16.Session02.Inputan",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(8)",
+            "request": "launch",
+            "mainClass": "PPTI16.Session02.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        },
+        {
+            "type": "java",
+            "name": "Launch Main(9)",
+            "request": "launch",
+            "mainClass": "SL.Main",
+            "projectName": "OOPinJava_b59aa7b5"
+        }
+    ]
+}
